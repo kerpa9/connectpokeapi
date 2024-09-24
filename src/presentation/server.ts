@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express, { Request, Response, Router } from "express";
 import cors from "cors";
 
 interface Options {
@@ -22,6 +22,10 @@ export class Server {
     this.app.use(express.urlencoded({ extended: true }));
 
     this.app.use("/api/v1", this.routes);
+
+    this.app.get("/", (req: Request, res: Response) => {
+      return res.send("Welcome to my API, which connects to PokeAPI!");
+    });
 
     this.app.listen(this.port, () => {
       console.log(
