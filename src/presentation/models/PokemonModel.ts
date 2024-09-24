@@ -1,3 +1,4 @@
+import { CatchError } from "../../domain/errors/catchErrors";
 import { readJSONFromEndpoint } from "../utils/utils";
 const url1: string = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100";
 const url2: string = `https://pokeapi.co/api/v2/pokemon`;
@@ -11,8 +12,7 @@ export class PokemonModel {
       //   console.log(pokemons);
       return pokemons.results;
     } catch (error: any) {
-      console.error("Error fetching pokemons:", error);
-      return null;
+      throw CatchError.internalServer("Something went very wrong!  🧨🧨");
     }
   }
 
@@ -27,8 +27,7 @@ export class PokemonModel {
       //   console.log(pokemons);
       return pokemons;
     } catch (error: any) {
-      console.error("Error fetching pokemons:", error);
-      return null;
+      throw CatchError.internalServer("Something went very wrong!  🧨🧨");
     }
   }
 
@@ -42,8 +41,7 @@ export class PokemonModel {
       //   console.log(pokemons);
       return { pokemons, pokemons1 };
     } catch (error: any) {
-      console.error("Error fetching pokemons:", error);
-      return null;
+      throw CatchError.internalServer("Something went very wrong!  🧨🧨");
     }
   }
 }

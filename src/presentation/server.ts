@@ -27,6 +27,8 @@ export class Server {
       return res.send("Welcome to my API, which connects to PokeAPI!");
     });
 
+    this.app.use(cors());
+
     this.app.listen(this.port, () => {
       console.log(
         `Server is running on port http://localhost:${this.port} 😁😁`

@@ -5,14 +5,6 @@ import { PokemonModel } from "../models/PokemonModel";
 export class PokemonController {
   constructor() {}
 
-  private handleError = (err: any, res: Response) => {
-    console.log(err);
-    if (err instanceof CatchError) {
-      return res.status(err.statusCode).json({ messsage: err.message });
-    }
-    return res.status(500).json({ message: " something went very wrong" });
-  };
-
   static async getAll(req: Request, res: Response) {
     const pokemos = await PokemonModel.getAllPokemons();
 
@@ -21,6 +13,10 @@ export class PokemonController {
 
   static async getOne(req: Request, res: Response) {
     const { id } = req.params;
+
+    if (isNaN(+id)) {
+      return res.status(400).json({ message: "El id debe ser numero" });
+    }
     // console.log(id);
     const pokemos = await PokemonModel.getOnePokemon(+id);
 
@@ -33,6 +29,10 @@ export class PokemonController {
 
   static async getOneTypeAndSpecie(req: Request, res: Response) {
     const { id } = req.params;
+
+    if (isNaN(+id)) {
+      return res.status(400).json({ message: "El id debe ser numero" });
+    }
     // console.log(id);
     const pokemos = await PokemonModel.getOneTypeandName(+id);
 
