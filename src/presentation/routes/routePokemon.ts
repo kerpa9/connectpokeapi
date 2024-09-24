@@ -7,6 +7,7 @@ export class PokemonRoutes {
     const routerPokemon = Router();
 
     routerPokemon.get("/", PokemonController.getAll);
+    routerPokemon.get("/:id", PokemonController.getOne);
 
     return routerPokemon;
   }

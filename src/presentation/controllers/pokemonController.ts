@@ -16,6 +16,14 @@ export class PokemonController {
   static async getAll(req: Request, res: Response) {
     const pokemos = await PokemonModel.getAllPokemons();
 
-    return res.status(201).json(pokemos);
+    return res.status(200).json(pokemos);
+  }
+
+  static async getOne(req: Request, res: Response) {
+    const { id } = req.params;
+    // console.log(id);
+    const pokemos = await PokemonModel.getOnePokemon(+id);
+
+    return res.status(200).json(pokemos);
   }
 }
