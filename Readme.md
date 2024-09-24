@@ -1,3 +1,5 @@
+Description in English
+
 The developed API follows REST architecture, adhering to all its principles. The Model-View-Controller (MVC) pattern is used along with the Adapter design pattern. The Express framework allows, through CORS, the consumption of any route or client. This project is implemented in TypeScript (class-based) and includes the use of environment variables managed optimally with dotenv and env-var. Additionally, a specific function for proper error handling has been implemented.
 
 1. GET /api/pokemon - List all first 100 Pokemons and return its “name” and “URL”. See
