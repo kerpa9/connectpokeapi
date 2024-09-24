@@ -7,6 +7,7 @@ export class AppRoutes {
 
     //Endpoints pokeAPI
     router.use("/pokemon", PokemonRoutes.routesPokemon);
+    router.use("/pokemonAndType", PokemonRoutes.routesPokemontype);
 
     return router;
   }

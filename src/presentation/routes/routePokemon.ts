@@ -8,7 +8,15 @@ export class PokemonRoutes {
 
     routerPokemon.get("/", PokemonController.getAll);
     routerPokemon.get("/:id", PokemonController.getOne);
+    // routerPokemon.get("/:id", PokemonController.getOneTypeAndSpecie);
 
     return routerPokemon;
+  }
+
+  static get routesPokemontype(): Router {
+    const routerPokemonType = Router();
+    routerPokemonType.get("/:id", PokemonController.getOneTypeAndSpecie);
+
+    return routerPokemonType;
   }
 }
